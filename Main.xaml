@@ -1,9 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sda="clr-namespace:System.DirectoryServices.AccountManagement;assembly=System.DirectoryServices.AccountManagement" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="hasRegisterButton" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="userFirstName" Type="InArgument(x:String)" />
+    <x:Property Name="eventBriteUrl" Type="InArgument(x:String)" />
+    <x:Property Name="userLastName" Type="InArgument(x:String)" />
+    <x:Property Name="userEmail" Type="InArgument(x:String)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1848,3366</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1848,2183</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -105,69 +108,22 @@
       <AssemblyReference>System.DirectoryServices.AccountManagement</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="476,3301" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="476,2118" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="userFirstName" />
-      <Variable x:TypeArguments="x:String" Name="eventBriteUrl" />
-      <Variable x:TypeArguments="x:String" Name="userLastName" />
-      <Variable x:TypeArguments="x:String" Name="userEmail" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="hasRegisterButton" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="434,1164" sap2010:WorkflowViewState.IdRef="Sequence_3">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,238" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="Copy and paste the URL link for the Badminton signup link" Title="URL Location">
-        <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">
-            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">eventBriteUrl</CSharpReference>
-          </OutArgument>
-        </ui:InputDialog.Result>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:InputDialog>
-      <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,238" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Please enter your first name as you want it to appear on the ticket" Title="First Name">
-        <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">
-            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">userFirstName</CSharpReference>
-          </OutArgument>
-        </ui:InputDialog.Result>
-      </ui:InputDialog>
-      <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,238" sap2010:WorkflowViewState.IdRef="InputDialog_7" IsPassword="False" Label="Please enter your last name as you want it to appear on the ticket" Title="Last Name">
-        <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">
-            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">userLastName</CSharpReference>
-          </OutArgument>
-        </ui:InputDialog.Result>
-      </ui:InputDialog>
-      <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,238" sap2010:WorkflowViewState.IdRef="InputDialog_8" IsPassword="False" Label="Please enter the email you are registering with" Title="Email Address">
-        <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">
-            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">userEmail</CSharpReference>
-          </OutArgument>
-        </ui:InputDialog.Result>
-      </ui:InputDialog>
-    </Sequence>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: New Tab" sap:VirtualizedContainerService.HintSize="434,2005" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="471e73f4-53aa-4eb4-9b3b-bfd8b82e425a" Version="V1">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: New Tab" sap:VirtualizedContainerService.HintSize="434,2026" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="471e73f4-53aa-4eb4-9b3b-bfd8b82e425a" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1789" sap2010:WorkflowViewState.IdRef="Sequence_4">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="ui:UiElement" Name="registerButtonElement" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1810" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -180,17 +136,7 @@
                 </InArgument>
               </uix:NGoToUrl.Url>
             </uix:NGoToUrl>
-            <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_2">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Boolean">
-                  <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">hasRegisterButton</CSharpReference>
-                </OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Flowchart sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <Flowchart sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -231,7 +177,7 @@
                       <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">
-                            <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">hasRegisterButton</CSharpReference>
+                            <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">hasRegisterButton</CSharpReference>
                           </OutArgument>
                         </Assign.To>
                         <Assign.Value>
@@ -360,7 +306,7 @@
                 </InArgument>
               </uix:NTypeInto.Text>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Confirm email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="471e73f4-53aa-4eb4-9b3b-bfd8b82e425a" Version="V1">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Confirm email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,217" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="471e73f4-53aa-4eb4-9b3b-bfd8b82e425a" Version="V1">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com.au/checkout-external?eid=226188294277&amp;parent=https%3A%2F%2Fwww.eventbrite.com.au%2Fe%2Fhacked-education-hackathon-tickets-226188294277%3Faff%3Debdssbcitybrowse&amp;modal=1&amp;aff=ebdssbcitybrowse" DesignTimeRectangle="789, 541, 257, 46" ElementType="InputBox" FriendlyName="'INPUT buyer.confirmEmai…'" FullSelectorArgument="&lt;webctrl id='eventbrite-widget-modal-226188294277' tag='IFRAME' /&gt;&lt;webctrl id='buyer.confirmEmailAddress' tag='INPUT' type='email' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl id='buyer.confirmEmailAddress' tag='INPUT' type='email' aaname='Confirm email *(required)' /&gt;" Guid="c7de017e-ac56-4b1e-bbaa-f14e9bd42481" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQUAAAAyCAYAAABVns4wAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASnSURBVHhe7dzhS1tXHMZx/4r9b3u/d76QSRDLCEVxSVkoYVICBrIRB7WoSMqcJUGLTspwxBGlrlGcZlVoSq3RIFYN8uyce2+sx8RSl9qm9fuBA7k5ybn3lvyee869xY7KblWrxZJWnv5Do9FucLM5YPOgw744Pj4RgJvN5oDNgw6bEABg2TwgFACcIRQAOAgFAA5CAYCDUADgIBQAOAgFAA5CAYCDUADgIBQAOAgFAA5CAYCDUADgIBQAOAgFAA5CAYCDUPgsFFTomdZesAVcpw8TCofrepxOqrcnqq5u024NaihX1P5p0N+yA62MJxQKmbHvZFU+WtFwOKrUX2+C/s/UhfMo5xL++Xlbvq1fOrXQ840Wvv5W+a5OFWarQQ9wPVoPheCH3ZuY0tJ2RfvVinZWs7pn30sXdBh8rCWvZhTrHtTYRs3fvkGhYJUnOvXkq079/Tx4A7hGLYfC1q+D6hqY0ubFWUFpSv2mkDPbwXYrXmYV6b6vpWDzS9U0FA4WVOhO6t9nE/rz+9/FPAHXrcVQ2FHublThTCnYPq+kTF9Usekdf/P1okZ+iPnLi1BMkQeL2qkHiVf0g0qNDiscLEHCyTmVbb/XFyxLbPOKpqCUeZ1a9r/uFVPfsFI/2vETyr2UltL2sz9paCDYZ49Z0swWlH8QLEPsMYyvNJ3JHG5k3e/l1s8+5+8rqXvxmEK23xtnUUu5JsdumaVVLjno79P0hQaGNf8i6Gt2Hk1mCsDH1GIomOmv+bHH5yvB9iVOixox0+RYpqh9swI42SsqY8Kkd7To9weF35s2QXFk+xeVsp+fDQKlYabQpJi64xr6Y9ssXw50YgrSC4VQQpPPzdS8VlE+HfeKMvbIFHitpv3lieYzmb05xUNxpfIVeX/0vlrU2B17jv6x1Pfl9Z++0dYju10/9ppOXsyY70c1lPeXBGujJlyST4L7KzVt/Xa+8AkFtJ+PEwpPR02BmqKuXz2t5fvmvVEzguEVvX+Fr9vMmCJOF/yN9wmFiFtMXijUv2+Z5UzYjJE/O4ZtTUbejlG3M91YmPvzSXXdnTHzoiaFe7SgIRMuk2dXfyn/c1SR3CWl7ZwLoYD202IovGv54BedVxw2AC7+2L3iSOrx6/prNxS8ArlKKFwYvyEUGsYoK2dmABdDwRvLjN3QvpvQWr3f2Zc9FvfY7b7roXC4MaeUXWr0xBTuiyt82y5LCAW0rxZD4R03Gr0ijGlk1bz+HzOFTxUK3kwhueAvHZq4Wij4+zi7r2IFMxZCAe2q5VB4+0gyq7VXwSPJkrk63o4qlDBrafuZ97qn0B6h4N9TSGhsNbinUCtrPmmu7ik/KK4WCv7N1v6J9WCs+r0NQgHtq/VQsJr856X4+LmnC5Z9+nD+jn3D04c2CQXDefpgjrU/mdVm8PjhaqFgxnr2UJFb9X8XEzbTD9VPKKCNfZhQAPDFIBQAOAgFAA5CAYCDUADgIBQAOAgFAA5CAYCDUADgIBQAOAgFAA5CAYCDUADgIBQAOAgFAA5CAYCDUADgIBQAOLxQWC2WdHx82Z8qBXBT2BywedBR2a16L2xC0Gi0m9tsDlR2q/oPPYpvKNtYyTMAAAAASUVORK5CYII=" InformativeScreenshot="18579a60dc35f88d189e6e95443e663a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='HackED Education Hackathon Tickets, Sat 05/03/2022 at 9:00 am | Eventbrite' /&gt;" SearchSteps="FuzzySelector, Image">
                   <uix:TargetAnchorable.Anchors>
@@ -376,11 +322,18 @@
                 </InArgument>
               </uix:NTypeInto.Text>
             </uix:NTypeInto>
-            <uix:NClick ClickType="Single" DisplayName="Click 'Register'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="471e73f4-53aa-4eb4-9b3b-bfd8b82e425a" Version="V1">
+            <uix:NClick ClickType="Single" DisplayName="Click 'Register'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="471e73f4-53aa-4eb4-9b3b-bfd8b82e425a" Version="V1">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com.au/checkout-external?eid=240679046507&amp;parent=https%3A%2F%2Fwww.eventbrite.com.au%2Fe%2Fversal-badminton-club-tuesday-7pm-11pm-tickets-240679046507%3Faff%3Debdssbcitybrowse&amp;modal=1&amp;aff=ebdssbcitybrowse" DesignTimeRectangle="945, 876, 119, 44" ElementType="Button" FriendlyName="'Register'" FullSelectorArgument="&lt;webctrl id='eventbrite-widget-modal-240679046507' tag='IFRAME' /&gt;&lt;webctrl aaname='Register' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl aaname='Register' tag='BUTTON' type='button' check:text='Register' /&gt;" Guid="08ee78fb-6ca7-44fc-b16b-1d1a81bee6fd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHsAAAAwCAYAAAAxWAXQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPgSURBVHhe7ZxNSxtRFIb7B7rtr8hPcOOuC3duCs3KldBV0ZV0LehGCBQUQYggSApCQBBdDRSEgBCRClMCMVoTU7X5MOQLh7y9Zz5P4gS0VJ3cnBdecO49906c5957TrKYNxCNjQT2GKkPdutnFoUvH/Dj/TucTL4Vj6CJHTEkloPyYVOnQNbHxHIQuA+bVkPYIPHomphy+bBlV+tnYsrlww4LFo++uQS25uYS2JqbS2Brbi6Brbm5BLbm5hLYmptLYGtuLoGtubkEtubmEtiam0tga24uga25uSIEO4mO+1m4rCsDNwth8f/geXWPLtA7TYT3a2iu6MG+TONicQbFrSTqJ2X0qC23BjN0zBP9JNju5zlPhvSNjrmiB7vv4S6g0VBtDQOlvtiXsMB+Rg8+3BjymwYsamOwz7YNdGkBkKw2rHwKxbg3RwxFw4RlD1KqHePOrKk/TFTYPazsgh9fOiyg58V3y2huT/txXN4YcyWFTq3ttg6mGXd+00CnRb3efV/PXJHP2STryIWztI97dd27NnCbUEf9TsZeDL18Ennq38g4x37DxN1BKkgDw2AnnMV0f/gJudlPqF+pi1YG5ckJnC2moU58P60UPsdwEk+gRY1q/ur6DC7WVQxd17zFGPwPVn4f1YNl/LLbX89c0czZG4YNlR5qY3cOOTemeES7tIbG12DcTY4CHZilLPW30dz0+mO4Zf3DYPeuM6isf0TePyGC2L5jfNekFnT2FHi37eKwrFq8z+SOuUo7iy8C5orsMV6ywZZxtxTEVM4pIEzOw3b6+49OZwEMgT05jVv7mHel0kI3m8AZi+WwnbnC1dkLm//1zRXdnB1fRpPynn9Eeju7gPo8Hxf4yTvb8+y0qv5TaNks1cJJBLEPdzaff9AC+5F++HDNb8d2zqWHZ3/18nL2pYFblTOLW2mnELLzrOr3crYqzOq7SVQyqlij6yGwnSO4jZZKFReLc6jkqfDyYLvfBLoF3O2s4WZ1KsjZav7qlhqznkTzj7pWC7BqL0CB/UiH7KTJqQDAqpMn+6pxpV5NFUsrXg59YjUen0M1XwuqcauGjuEuLLrXnun33Wfm7LbBarzXKKBhV/Ah80fAXBGC/Tz+fUpg+vP4OJlLK9jmzrH9v1hmEmX6FW5HVfW0My9TkamOX9pcmu3sCZS/q2Pc/oLs6L/+tj6C5tL+GB93cwlszc0lsDU3l8DW3FwCW3NzCWzNzSWwNTeXwNbcXAJbc3MJbM3N5cOWF+jo56Ev0JFXY+nnoa/Gkpfe6WViOfSldyTqpNUg0EfXxI4YDoIm9cEW6S2BPTYC/gLv9gREhy6hvQAAAABJRU5ErkJggg==" InformativeScreenshot="aae1eb30780a3084d8f8f474472306bc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Versal Badminton Club - Tuesday 7pm-11pm Tickets, Tue 08/03/2022 at 7:00 pm | Eventbrite' /&gt;" SearchSteps="FuzzySelector, Image" />
               </uix:NClick.Target>
             </uix:NClick>
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="MessageBox_1">
+              <ui:MessageBox.Text>
+                <InArgument x:TypeArguments="x:Object">
+                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">"Registration Complete! Control has been returned to you"</CSharpValue>
+                </InArgument>
+              </ui:MessageBox.Text>
+            </ui:MessageBox>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
